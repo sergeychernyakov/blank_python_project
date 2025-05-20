@@ -10,6 +10,8 @@ with specific configurations such as log level and handlers.
 import logging
 from src.config import config
 
+logging.getLogger("faker.factory").setLevel(logging.ERROR)
+
 def get_logger(name: str) -> logging.Logger:
     """
     Returns a logger instance with a specified configuration.
