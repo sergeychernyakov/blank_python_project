@@ -65,6 +65,17 @@ If you add new dependencies during development, update the `requirements.txt` fi
 pip freeze > requirements.txt
 ```
 
+## Pre-commit Hooks
+
+This project uses pre-commit hooks for code formatting and linting. To set up and run the hooks:
+
+```bash
+pip install pre-commit
+pre-commit install
+pre-commit run --all-files
+```
+
+
 ## Usage
 
 ### Script Workflow
@@ -107,3 +118,4 @@ Unit tests are located in the `tests/` directory. To run the tests, execute:
 ```bash
 pytest
 ```
+
