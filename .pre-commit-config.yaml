@@ -21,15 +21,6 @@ repos:
 
   - repo: local
     hooks:
-      - id: pylint
-        name: pylint
-        entry: pylint --rcfile .pylintrc src securemail_automator.py
-        language: system
-        types: [python]
-        pass_filenames: false
-
-  - repo: local
-    hooks:
       - id: test-coverage
         name: Test Coverage Check
         entry: bash -c "rm -f .coverage && coverage run -m pytest && coverage report --fail-under=90"
@@ -41,6 +32,6 @@ repos:
     hooks:
       - id: pylint
         name: Code Quality Check
-        entry: pylint --rcfile .pylintrc --fail-under=10.0 src securemail_automator.py
+        entry: pylint --rcfile .pylintrc --fail-under=10.0 src main.py
         exclude: '^tests/'
         language: system

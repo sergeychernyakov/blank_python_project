@@ -10,3 +10,5 @@ allowing imports from a single module.
 """
 
 from src.models.base import Base
+
+__all__ = ["Base"]

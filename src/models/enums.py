@@ -11,5 +11,6 @@ class YesNoEnum(str, Enum):
     """
     Enumeration for Yes/No answers.
     """
+
     YES = "YES"
     NO = "NO"

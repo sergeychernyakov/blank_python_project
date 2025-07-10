@@ -10,7 +10,8 @@ for fields. It is intended to be inherited by other models in the project.
 
 import re
 from typing import Any, Dict, Optional
-from pydantic import BaseModel, ValidationError, ConfigDict
+
+from pydantic import BaseModel, ConfigDict, ValidationError
 
 
 class Base(BaseModel):
@@ -21,12 +22,9 @@ class Base(BaseModel):
     - Validation with error reporting.
     - Utility method for retrieving field names and their metadata.
     """
+
     _validation_errors: Optional[Dict[str, str]] = None
-    model_config = ConfigDict(
-        populate_by_name=True,
-        str_strip_whitespace=True,
-        extra='ignore'
-    )
+    model_config = ConfigDict(populate_by_name=True, str_strip_whitespace=True, extra="ignore")
 
     def is_valid(self) -> bool:
         """Checks if the model is valid by running validation."""
@@ -66,9 +64,7 @@ class Base(BaseModel):
 
         # Validate for UK mobile format only
         if not re.fullmatch(r"^0[37]\d{9}$", v):
-            raise ValueError(
-                f"{field_name} must be in UK local format (07XXXXXXXXX) or (03XXXXXXXX)."
-            )
+            raise ValueError(f"{field_name} must be in UK local format (07XXXXXXXXX) or (03XXXXXXXX).")
 
         if v in ["07123456789", "03123456789"]:
             raise ValueError(f"{field_name} cannot be a dummy phone number.")

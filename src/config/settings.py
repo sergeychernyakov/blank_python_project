@@ -10,9 +10,11 @@ variables from a `.env` file and sets various application settings.
 
 import os
 from dataclasses import dataclass
+
 from dotenv import load_dotenv
 
 load_dotenv()
+
 
 @dataclass
 class Config:
@@ -21,11 +23,13 @@ class Config:
     DEBUG: bool = False  # pylint: disable=invalid-name
     APP_ENV = os.getenv("APP_ENV")
 
+
 @dataclass
 class DevelopmentConfig(Config):
     """Development configuration."""
 
     DEBUG: bool = True
+
 
 @dataclass
 class ProductionConfig(Config):

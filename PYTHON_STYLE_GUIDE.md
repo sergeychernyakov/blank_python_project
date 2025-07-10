@@ -15,6 +15,7 @@
 * Use **list comprehensions** and **generator expressions** where appropriate.
 * One file = one responsibility. No dumping ground modules.
 * Consistent naming across the repo. Be a naming ninja.
+* Don't use argparse unless explicitly instructed
 
 ---
 
@@ -84,7 +85,7 @@
 * Use `pytest` for all tests.
 * Follow AAA pattern: **Arrange → Act → Assert**.
 * Target **90%+ test coverage**.
-* тесты должны повторять структуру приложения
+* tests should mirror the application structure
 * Cover:
 
   * Happy paths ✅
